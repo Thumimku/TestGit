@@ -1,37 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?><ServiceProvider>
-  <ApplicationName>superDoubleSP</ApplicationName>
-  <Description/>
+  <ApplicationName>sample</ApplicationName>
   <JwksUri/>
   <InboundAuthenticationConfig>
     <InboundAuthenticationRequestConfigs>
       <InboundAuthenticationRequestConfig>
-        <InboundAuthKey>superDoubleSP</InboundAuthKey>
-        <InboundAuthType>passivests</InboundAuthType>
+        <InboundAuthKey>h8ty2YXogDs2qNim8ehGWi_40Xga</InboundAuthKey>
+        <InboundAuthType>oauth2</InboundAuthType>
         <InboundConfigType>standardAPP</InboundConfigType>
-        <Properties/>
-      </InboundAuthenticationRequestConfig>
-      <InboundAuthenticationRequestConfig>
-        <InboundAuthKey>superDoubleSP</InboundAuthKey>
-        <InboundAuthType>openid</InboundAuthType>
-        <InboundConfigType>standardAPP</InboundConfigType>
+        <inboundConfiguration><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oAuthAppDO>
+    <oauthConsumerKey>h8ty2YXogDs2qNim8ehGWi_40Xga</oauthConsumerKey>
+    <oauthConsumerSecret>AJpArqNP0iJf7mc2mm1QJdZ_IH4a</oauthConsumerSecret>
+    <applicationName>sample</applicationName>
+    <callbackUrl>https://myapp.io/login</callbackUrl>
+    <oauthVersion>OAuth-2.0</oauthVersion>
+    <grantTypes>authorization_code</grantTypes>
+    <scopeValidators/>
+    <pkceSupportPlain>false</pkceSupportPlain>
+    <pkceMandatory>false</pkceMandatory>
+    <state>ACTIVE</state>
+    <userAccessTokenExpiryTime>3600</userAccessTokenExpiryTime>
+    <applicationAccessTokenExpiryTime>3600</applicationAccessTokenExpiryTime>
+    <refreshTokenExpiryTime>86400</refreshTokenExpiryTime>
+    <idTokenExpiryTime>3600</idTokenExpiryTime>
+    <audiences/>
+    <bypassClientCredentials>false</bypassClientCredentials>
+    <requestObjectSignatureValidationEnabled>false</requestObjectSignatureValidationEnabled>
+    <idTokenEncryptionEnabled>false</idTokenEncryptionEnabled>
+    <idTokenEncryptionAlgorithm>null</idTokenEncryptionAlgorithm>
+    <idTokenEncryptionMethod>null</idTokenEncryptionMethod>
+    <tokenType>Default</tokenType>
+    <tokenRevocationWithIDPSessionTerminationEnabled>false</tokenRevocationWithIDPSessionTerminationEnabled>
+    <tokenBindingValidationEnabled>false</tokenBindingValidationEnabled>
+</oAuthAppDO>
+]]></inboundConfiguration>
         <Properties/>
       </InboundAuthenticationRequestConfig>
     </InboundAuthenticationRequestConfigs>
   </InboundAuthenticationConfig>
   <LocalAndOutBoundAuthenticationConfig>
-    <AuthenticationSteps/>
+    <AuthenticationSteps>
+      <AuthenticationStep>
+        <StepOrder>1</StepOrder>
+        <LocalAuthenticatorConfigs>
+          <LocalAuthenticatorConfig>
+            <Name>BasicAuthenticator</Name>
+            <DisplayName>basicauth</DisplayName>
+            <IsEnabled>true</IsEnabled>
+            <Properties/>
+          </LocalAuthenticatorConfig>
+        </LocalAuthenticatorConfigs>
+        <FederatedIdentityProviders/>
+        <SubjectStep>true</SubjectStep>
+        <AttributeStep>true</AttributeStep>
+      </AuthenticationStep>
+    </AuthenticationSteps>
     <AuthenticationType>default</AuthenticationType>
     <alwaysSendBackAuthenticatedListOfIdPs>false</alwaysSendBackAuthenticatedListOfIdPs>
     <UseTenantDomainInUsername>false</UseTenantDomainInUsername>
     <UseUserstoreDomainInRoles>true</UseUserstoreDomainInRoles>
     <UseUserstoreDomainInUsername>false</UseUserstoreDomainInUsername>
     <SkipConsent>false</SkipConsent>
-    <skipLogoutConsent>false</skipLogoutConsent>
+    <skipLogoutConsent>true</skipLogoutConsent>
     <EnableAuthorization>false</EnableAuthorization>
   </LocalAndOutBoundAuthenticationConfig>
   <RequestPathAuthenticatorConfigs/>
   <InboundProvisioningConfig>
-    <ProvisioningUserStore/>
     <IsProvisioningEnabled>false</IsProvisioningEnabled>
     <IsDumbModeEnabled>false</IsDumbModeEnabled>
   </InboundProvisioningConfig>
@@ -39,10 +73,22 @@
     <ProvisioningIdentityProviders/>
   </OutboundProvisioningConfig>
   <ClaimConfig>
-    <RoleClaimURI/>
     <LocalClaimDialect>true</LocalClaimDialect>
     <IdpClaim/>
-    <ClaimMappings/>
+    <ClaimMappings>
+      <ClaimMapping>
+        <LocalClaim>
+          <ClaimUri>http://wso2.org/claims/username</ClaimUri>
+          <claimId>0</claimId>
+        </LocalClaim>
+        <RemoteClaim>
+          <ClaimUri>http://wso2.org/claims/username</ClaimUri>
+          <claimId>0</claimId>
+        </RemoteClaim>
+        <RequestClaim>true</RequestClaim>
+        <MandatoryClaim>true</MandatoryClaim>
+      </ClaimMapping>
+    </ClaimMappings>
     <AlwaysSendMappedLocalSubjectId>false</AlwaysSendMappedLocalSubjectId>
     <SPClaimDialects/>
   </ClaimConfig>
@@ -52,9 +98,7 @@
     <IdpRoles/>
   </PermissionAndRoleConfig>
   <IsSaaSApp>false</IsSaaSApp>
-  <ImageUrl/>
-  <AccessUrl/>
   <IsDiscoverable>false</IsDiscoverable>
-
-
+  <TemplateId>b9c5e11e-fc78-484b-9bec-015d247561b8</TemplateId>
+  <IsManagementApp>false</IsManagementApp>
 </ServiceProvider>
